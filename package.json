@@ -1,9 +1,9 @@
 {
-  "name": "wxt-starter",
+  "name": "ShareFast: Tweet with a Click",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "manifest.json description",
+  "description": "Tweet about the current page with one click",
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",

@@ -22,7 +22,8 @@ function Popup() {
   }, [])
 
   const handleShare = () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(comment)}&url=${encodeURIComponent(url)}`
+    // %0A is the URL encoded newline character
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${comment}%0A`)}&url=${encodeURIComponent(url)}`
     window.open(twitterUrl, '_blank')
   }
 

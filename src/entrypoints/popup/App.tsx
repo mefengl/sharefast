@@ -21,9 +21,12 @@ function Popup() {
     getActiveTabUrl()
   }, [])
 
-  const handleShare = () => {
-    // %0A is the URL encoded newline character
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${comment}%0A`)}&url=${encodeURIComponent(url)}`
+  const handleShare = ({ includeLink } = { includeLink: false }) => {
+    let tweetText = comment
+    if (includeLink) {
+      tweetText += `\n${url}`
+    }
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`
     window.open(twitterUrl, '_blank')
   }
 
@@ -75,8 +78,15 @@ function Popup() {
         {' '}
         {url}
       </div>
-      <Button className="mb-2 w-full" onClick={handleShare}>
+      <Button className="mb-2 w-full" onClick={() => handleShare({ includeLink: true })}>
         Share to Twitter
+      </Button>
+      <Button
+        className="mb-2 w-full"
+        onClick={() => handleShare()}
+        variant="ghost"
+      >
+        Send without link
       </Button>
       <Button
         className="w-full"

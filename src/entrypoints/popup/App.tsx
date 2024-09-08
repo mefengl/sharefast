@@ -64,6 +64,7 @@ function Popup() {
   return (
     <div className="w-80 p-4 pb-0">
       <Textarea
+        autoFocus
         className="mb-2"
         onChange={e => setComment(e.target.value)}
         placeholder="Add your comment here..."
